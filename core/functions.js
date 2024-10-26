@@ -78,7 +78,7 @@ function isBase64(str) {
 function readEnvFile() {
   try {
     let content = fs.readFileSync(".env", "utf-8");
-    return content ? content : readEnvExampleFile();
+    return content || readEnvExampleFile();
   } catch (error) {
     console.error("Error while reading the .env file - ", error.message);
     return readEnvExampleFile();
